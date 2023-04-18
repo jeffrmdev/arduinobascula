@@ -46,14 +46,6 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="./perfil.php">
-                        <i class="fa fa-cog"></i>
-                        <span class="nav-text">
-                            Configurar perfil
-                        </span>
-                    </a>
-                </li>
             </ul>
         </nav>
     </div>
