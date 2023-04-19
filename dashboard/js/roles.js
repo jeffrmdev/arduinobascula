@@ -49,7 +49,7 @@ function agregarRol() {
     let rol = document.getElementById("rol").value
     let codigo = document.getElementById("codigo").value
 
-    if (rol == '' && codigo == '') {
+    if (rol.length == 0 || codigo.length == 0) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -67,35 +67,138 @@ function agregarRol() {
                 opcion: option,
             },
             success: function (data, status) {
-
+                $('#rol').val('');
+                $('#codigo').val('');
+                $('#agregarRol').modal('hide');
+                mostrarRoles();
             }
 
         })
     }
 }
 
+function actualizarRol() {
+    let ver = true;
+    option = "actualizar"
+    let rol = document.getElementById("rol").value
+    let codigo = document.getElementById("codigo").value
+    let id = document.getElementById("id_rol").value
+
+    if (rol.length == 0 || codigo.length == 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No deje los campos vacíos',
+        })
+        ver = false;
+    }
+    if (ver) {
+        $.ajax({
+            url: './php/config_roles.php',
+            type: 'POST',
+            data: {
+                rol: rol,
+                codigo: codigo,
+                id:id,
+                opcion: option,
+            },
+            success: function (data, status) {
+                $('#rol').val('');
+                $('#codigo').val('');
+                $('#agregarRol').modal('hide');
+                mostrarRoles();
+            }
+
+        })
+    }
+}
+
+function eliminarRol(id) {
+    option = "eliminar";
+    Swal.fire({
+        title: '¿Quiere eliminar este material?',
+        text: "No se podrá recuperar",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#DA0000',
+        cancelButtonColor: '#332DB9',
+        confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let estado = true
+            eliminar(estado)
+        }
+    })
+    function eliminar(estado) {
+        if (estado) {
+            $.ajax({
+                url: "./php/config_roles.php",
+                type: "POST",
+                data: {
+                    id: id,
+                    opcion: option
+                },
+                success: function (data, status) {
+                    mostrarRoles();
+                    notificacionEliminar();
+                }
+            })
+        }
+    }
+}
+
 function obtenerDetalles(id) {
     option = "mostrar"
     //Muestro la pantalla de detalles y oculto el boton de guardado
-    $('#agregarRol').modal("show");
-    $('#actualizar').show();
-    $('#guardar').hide();
-
-
-    let rol = $('#rol').val();
-    let codigo = $('#codigo').val();
-    let id_rol = $('#id_rol').val();
-
+    $(document).ready(() => {
+        $('#agregarRol').modal("show");
+        $('#actualizar').show();
+        $('#guardar').hide();
+    })
     $.ajax({
         url: './php/config_roles.php',
-        type: 'GET',
+        type: 'POST',
         data: {
-            rol: rol,
-            codigo: codigo,
-            id: id_rol,
+            id: id,
+            opcion: option,
+        },
+        success: function (data) {
+            let datos = JSON.parse(data);
+            $('#rol').val(`${datos.rol_detalles}`);
+            $('#codigo').val(`${datos.codigo_detalles}`);
+            $('#id_rol').val(`${datos.id_detalles}`);
         }
+    })
+}
 
+
+function notificacionEliminar() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
     })
 
+    Toast.fire({
+        icon: 'error',
+        title: 'Se ha eliminado a el usuario'
+    })
 }
+
 mostrarRoles();
+
+$(document).ready(() => {
+    $("#mostrarModal").click(()=>{
+        $('#actualizar').hide();
+        $('#guardar').show();
+        $('#rol').val('');
+        $('#codigo').val('');
+        $('#id_rol').val('');
+    })
+})
