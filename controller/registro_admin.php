@@ -36,12 +36,13 @@ if (
 
     $password = SED::encryption($pass);
 
-    $buscar = "SELECT `codigo_miembro` FROM `codigo_miembros` WHERE `codigo_miembro` = '$code'";
+    $buscar = "SELECT `codigo_miembro`, `id` FROM `codigo_miembros` WHERE `codigo_miembro` = '$code'";
     $result = mysqli_query($con, $buscar);
 
     if ($result) {
         while ($row = mysqli_fetch_array($result)) {
             $db_code = $row[0];
+            $id_code = $row[1];
 
             if ($db_code == $code) {
                 $val_code = true;
@@ -90,8 +91,8 @@ if (
         }
 
         if ($val_user && $val_email) {
-            $insert = "INSERT INTO `login_usuarios`(`id_usuario`, `username_usuario`, `nombre_usuario`, `apellido_usuario`, `codigo_miembro`, `correo_usuario`, `password_usuario`) 
-                        VALUES (null,'$username','$name','$lastname','$code','$email','$password')";
+            $insert = "INSERT INTO `login_usuarios`(`id_usuario`, `username_usuario`, `nombre_usuario`, `apellido_usuario`, `id_codigo_miembro`, `correo_usuario`, `password_usuario`) 
+                        VALUES (null,'$username','$name','$lastname','$id_code','$email','$password')";
 
             $registrar = mysqli_query($con, $insert);
 
