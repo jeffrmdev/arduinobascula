@@ -57,10 +57,10 @@ if (empty($_SESSION['id'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="card shadow">
-                        <div class="card-header">
-                            <p class="font-weight-bold text-primary">Lista de roles</p>
+                        <div class="card-header d-flex flex-row justify-content-between align-items-center">
+                            <p class="font-weight-bold text-primary m-0">Lista de roles</p>
                             <div>
-                                <input type="button" value="Agregar rol" class="btn btn-primary" data-bs-toggle="modal"
+                                <input type="button" value="Agregar rol" id="mostrarModal"s class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#agregarRol">
                             </div>
                         </div>
@@ -97,23 +97,25 @@ if (empty($_SESSION['id'])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo rol de administrador</h4>
+                    <h4 class="modal-title fs-5" id="exampleModalLabel">Detalles de rol</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="material" class="col-form-label">Tipo de rol: </label>
+                            <label for="rol" class="col-form-label">Tipo de rol: </label>
                             <input type="text" class="form-control" id="rol" value="" placeholder="Ejemplo: Secretaria">
                         </div>
                         <div class="mb-3">
-                            <label for="precio" class="col-form-label">Código: </label>
-                            <input type="text" value="" id="codigo" class="form-control">
+                            <label for="codigo" class="col-form-label">Código: </label>
+                            <input type="text" value="" id="codigo" class="form-control" placeholder="Ejemplo: 1a2b3">
+                            <input type="hidden" id="id_rol">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" onclick="agregarMaterial();" class="btn btn-primary">Guardar</button>
+                    <button type="button" onclick="agregarRol();" id="guardar" class="btn btn-primary">Guardar</button>
+                    <button type="button" onclick="actualizarRol();" id="actualizar" class="btn btn-primary">Actualizar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
@@ -130,6 +132,7 @@ if (empty($_SESSION['id'])) {
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/sweetalert2/dist/sweetalert2.all.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -137,16 +140,8 @@ if (empty($_SESSION['id'])) {
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
-    <script src="./js/estadisticas.js"></script>
-
-    <!-- Tarjetas -->
-    <script src="./js/tarjetas.js"></script>
+    <!-- Código de roles -->
+    <script src="./js/roles.js"></script>
 
 
 </body>
