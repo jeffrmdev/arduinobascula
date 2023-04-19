@@ -59,10 +59,19 @@ if (empty($_SESSION['id'])) {
                     <div class="card shadow">
                         <div class="card-header">
                             <p class="font-weight-bold text-primary">Lista de roles</p>
-                            <button>Agregar un rol</button>
+                            <div>
+                                <input type="button" value="Agregar rol" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#agregarRol">
+                            </div>
                         </div>
                         <div class="card-body">
-
+                            <div class="table-responsive pt-1 pb-1" id="mostrarRoles">
+                                <div class="container-fluid p-5 text-center">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Content Row -->
@@ -74,8 +83,8 @@ if (empty($_SESSION['id'])) {
             <!-- Footer -->
             <div id="layoutAuthentication_footer" class="foot">
                 <?php
-            include "./layout/footer.php";
-        ?>
+                include "./layout/footer.php";
+            ?>
             </div>
             <!-- End of Footer -->
 
@@ -83,7 +92,35 @@ if (empty($_SESSION['id'])) {
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- New Material Modal -->
+    <div class="modal fade" id="agregarRol" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="exampleModalLabel">Agregar un nuevo rol de administrador</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="material" class="col-form-label">Tipo de rol: </label>
+                            <input type="text" class="form-control" id="rol" value="" placeholder="Ejemplo: Secretaria">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" class="col-form-label">Código: </label>
+                            <input type="text" value="" id="codigo" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="agregarMaterial();" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
