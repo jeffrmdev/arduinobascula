@@ -55,23 +55,20 @@ if (empty($_SESSION['id'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between pb-4">
                         <img src="../img/ico/logo.svg" style="width: 15rem;">
                     </div>
-
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h2 class="h5 mb-0 text-gray-800">Administrar usuarios</h2>
+                        <h2 class="h5 ms-3 mb-0 text-gray-800">Administrar clientes</h2>
                     </div>
                     <!-- Content Row -->
-
                     <div class="row">
                         <!-- LISTA DE USUARIOS -->
                         <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Lista de usuarios</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Lista de clientes</h6>
                                     <div>
                                         <input type="button" value="Agregar usuario" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuario" onClick="opciones()">
                                     </div>

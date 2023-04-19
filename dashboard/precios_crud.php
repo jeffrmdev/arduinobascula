@@ -20,7 +20,9 @@ if (empty($_SESSION['id'])) {
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../vendor/DataTables/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
@@ -53,29 +55,33 @@ if (empty($_SESSION['id'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between pb-4">
                         <img src="../img/ico/logo.svg" style="width: 15rem;">
+                    </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h2 class="h5 ms-3 mb-0 text-gray-800">Administrar precio de materiales</h2>
                     </div>
                     <div class="row">
                         <div class="col-xl-12 col-lg-7">
                             <!-- EDICION DE PRECIOS DE MATERIALES -->
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Lista de precios</h6>
                                     <div>
-                                        <input type="button" value="Agregar material" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarMaterial">
+                                        <input type="button" value="Agregar material" class="btn btn-primary"
+                                            data-bs-toggle="modal" data-bs-target="#agregarMaterial">
                                     </div>
                                 </div>
 
                                 <div class="card-body p-3">
                                     <div class="table-responsive pt-1 pb-1" id="mostrarMateriales">
                                         <div class="container-fluid p-5 text-center">
-                                        <div class="spinner-border text-primary" role="status">
-                                            <span class="visually-hidden">Cargando</span>
-                                        </div>
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Cargando</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -115,11 +121,13 @@ if (empty($_SESSION['id'])) {
                     <form>
                         <div class="mb-3">
                             <label for="material" class="col-form-label">Nombre material:</label>
-                            <input type="text" class="form-control" id="material" value="" placeholder="Ejemplo: baterías">
+                            <input type="text" class="form-control" id="material" value=""
+                                placeholder="Ejemplo: baterías">
                         </div>
                         <div class="mb-3">
                             <label for="precio" class="col-form-label">Precio:</label>
-                            <input type="number" min="0.00" max="10000.00" step="0.01" value="" id="precio" class="form-control" placeholder="0.00">
+                            <input type="number" min="0.00" max="10000.00" step="0.01" value="" id="precio"
+                                class="form-control" placeholder="0.00">
                         </div>
                     </form>
                 </div>
@@ -132,7 +140,8 @@ if (empty($_SESSION['id'])) {
     </div>
 
     <!-- Update Modal -->
-    <div class="modal fade" id="actualizarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="actualizarMaterial" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -147,12 +156,14 @@ if (empty($_SESSION['id'])) {
                         </div>
                         <div class="mb-3">
                             <label for="precioupdate" class="col-form-label">Precio:</label>
-                            <input type="number" min="0.00" max="10000.00" step="0.01" id="precioupdate" class="form-control" placeholder="0.00">
+                            <input type="number" min="0.00" max="10000.00" step="0.01" id="precioupdate"
+                                class="form-control" placeholder="0.00">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btn-actualizar" onclick="actualizarMaterial();" class="btn btn-primary">Actualizar</button>
+                    <button type="button" id="btn-actualizar" onclick="actualizarMaterial();"
+                        class="btn btn-primary">Actualizar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <input type="hidden" id="hidden_material">
                 </div>
