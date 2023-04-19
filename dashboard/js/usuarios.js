@@ -55,7 +55,7 @@ function agregarUsuario() {
     let precio = document.getElementById("precioVenta").value;
     let ver = true;
 
-    if (nombre == '' && apellido == '' && cedula == '') {
+    if (nombre == '' || apellido == '' || cedula == '') {
         Swal.fire({
             icon: 'error',
             title: 'Error',
