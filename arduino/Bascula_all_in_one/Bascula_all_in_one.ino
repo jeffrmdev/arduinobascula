@@ -43,7 +43,7 @@ void loop() {
    else
       Serial.println("HX711 not found.");
  }
- void enviar_sensor(){
+void enviar_sensor(){
  if (WiFi.status() == WL_CONNECTED){
      HTTPClient http;  // creo el objeto http
      String datos_a_enviar = "id=" + String(reading);
