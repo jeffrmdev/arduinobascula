@@ -2,6 +2,54 @@ const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', '
 const users = document.getElementById('usersArea');
 const materiales = document.getElementById('materialesPie');
 
+$(document).ready(function(){
+  let datos = [];
+  let year = $('#year').val();
+  let cantidad;
+  let mes;
+
+  $(document).on('change','#year',() => {
+    datos = []
+    year = $('#year').val();
+    console.log(year);
+    $.ajax({
+      url:'./php/config_estadisticas.php',
+      type:'POST',
+      data:{
+        year:year,
+      },
+      success: (data) => {
+        let info = JSON.parse(data);
+        $.each(info, (i, item) =>{
+          datos.push(info[i]);
+        })
+
+        $.each(datos, (i, item) =>{
+          console.log("Mes: "+datos[i].mes + " Cantidad: "+ datos[i].cantidad);
+        })
+      }
+    })
+  })
+
+  $.ajax({
+    url:'./php/config_estadisticas.php',
+    type:'POST',
+    data:{
+      year:year,
+    },
+    success: (data) => {
+      let info = JSON.parse(data);
+      $.each(info, (i, item) =>{
+        datos.push(info[i]);
+      })  
+
+      $.each(datos, (i, item) =>{
+        console.log("Mes: "+datos[i].mes + " Cantidad: "+ datos[i].cantidad);
+      })  
+    }
+  })
+
+
 const data = {
   labels: meses,
   datasets: [
@@ -29,3 +77,4 @@ const config = {
 };
 
 new Chart(users, config);
+})

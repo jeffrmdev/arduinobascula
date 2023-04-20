@@ -64,6 +64,10 @@ if (empty($_SESSION['id'])) {
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Número de usuarios mensuales</h6>
+                                    <select class="form-control" name="" id="year"> Año:
+                                        <option value="2023">Año 2023</option>
+                                        <option value="2022">Año 2022</option>
+                                    </select>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
