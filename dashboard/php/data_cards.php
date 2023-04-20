@@ -39,7 +39,7 @@ if($fila2[0] == null) $fila2[0] = "Ninguno";
 
 #IMPRIMIR EL ARRAY
 $datos[] = array(
-    'Total de usuarios'=> $fila1[0],
+    'Total de clientes registrados'=> $fila1[0],
     'Material más reciclado' => $fila2[0],
     'Cantidad reciclada' => ($peso+0 . " " . $medida)
 );

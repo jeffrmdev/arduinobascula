@@ -88,15 +88,6 @@ if (empty($_SESSION['id'])) {
             </div>
 
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <div id="layoutAuthentication_footer" class="foot">
-                <?php
-                include "./layout/footer.php";
-            ?>
-            </div>
-            <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 

@@ -3,6 +3,7 @@ session_start();
 if (empty($_SESSION['id'])) {
     header('location: ./login.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +19,14 @@ if (empty($_SESSION['id'])) {
     <link rel="shortcut icon" href="../img/ico/icono.png" type="image/x-icon">
 
     <title>Dashboard B - All in One</title>
-    
+
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/datatables/css/dataTables.bootstrap5.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -54,18 +59,17 @@ if (empty($_SESSION['id'])) {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-2">
-                        <h1 class="h3 mb-0 text-gray-800">Báscula All in One</h1>
+                    <div class="d-sm-flex align-items-center justify-content-between pb-4">
+                        <img src="../img/ico/logo.svg" style="width: 15rem;">
                     </div>
-
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h2 class="h5 mb-0 text-gray-800">Dashboard</h2>
+                        <h2 class="h5 ms-3 mb-0 text-gray-800">Inicio Dashboard B. - All in One </h2>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Tarjeta con información -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <a class="col-xl-3 col-md-6 mb-4" href="./administrar_usuarios.php">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -83,7 +87,7 @@ if (empty($_SESSION['id'])) {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Tarjeta con información -->
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -99,15 +103,15 @@ if (empty($_SESSION['id'])) {
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-recycle fa-2x text-gray-300"></i>
+                                            <i class="fas fa-square fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                       <!-- Tarjeta con información -->
-                       <div class="col-xl-3 col-md-6 mb-4">
+                        <!-- Tarjeta con información -->
+                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -120,45 +124,8 @@ if (empty($_SESSION['id'])) {
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-fat fa-2x text-gray-300"></i>
+                                            <i class="fas fa-recycle fa-2x text-gray-300"></i>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Número de usuarios mensuales</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="usersArea"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="materialesPie"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -167,15 +134,6 @@ if (empty($_SESSION['id'])) {
                 </div>
             </div>
             <!-- End of Main Content -->
-
-           <!-- Footer -->
-    <div id="layoutAuthentication_footer" class="foot">
-        <?php
-            include "./layout/footer.php";
-        ?>
-    </div>
-    <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 
@@ -210,4 +168,5 @@ if (empty($_SESSION['id'])) {
 
 
 </body>
+
 </html>

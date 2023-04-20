@@ -92,41 +92,36 @@ while ($row = mysqli_fetch_array($result)) {
                             </div>
                             <div class="container flex-row d-flex align-items-center justify-content-between">
                                 <div class="col-6 gy-2 d-flex flex-column align-items-center">
-                                    <img class="img-thumbnail" width="300px" src="./img/imagen-usuario.png"
-                                        alt="...">
+                                    <img class="img-thumbnail" width="300px" src="./img/imagen-usuario.png" alt="...">
                                 </div>
                                 <div class="ms-3 col-6">
                                     <label class="form-label" for="nombre">Nombre:</label>
-                                    <input class="form-control col" type="text" id="nombre" value="<?php echo $nombre; ?>" name="nombre">
+                                    <input class="form-control col" type="text" id="nombre"
+                                        value="<?php echo $nombre; ?>" name="nombre">
                                     <br>
                                     <label class="form-label" for="contraseña">Apellido:</label>
-                                    <input class="form-control col" type="text" value="<?php echo $apellido; ?>" id="apellido" name="apellido">
+                                    <input class="form-control col" type="text" value="<?php echo $apellido; ?>"
+                                        id="apellido" name="apellido">
                                     <br>
                                     <label class="form-label" for="correo">Correo electrónico:</label>
-                                    <input class="form-control col" type="email" value="<?php echo $correo; ?>" id="correo" name="correo">
+                                    <input class="form-control col" type="email" value="<?php echo $correo; ?>"
+                                        id="correo" name="correo">
                                     <br>
                                     <label class="form-label" for="bio">Nombre de Usuario:</label>
-                                    <input class="form-control col" type="text" value="<?php echo $username;?>" id="username" name="username">
+                                    <input class="form-control col" type="text" value="<?php echo $username;?>"
+                                        id="username" name="username">
                                     <input class="hidden" type="hidden" id="id" value="<?php echo $id;?>" name="id">
                                 </div>
                             </div>
                             <div class="row justify-content-md-center mt-5 mb-3">
-                                <input class="col-6 btn btn-primary" type="button" onClick="guardar(<?php echo $id; ?>)" value="Guardar cambios">
+                                <input class="col-6 btn btn-primary" type="button" onClick="guardar(<?php echo $id; ?>)"
+                                    value="Guardar cambios">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <div id="layoutAuthentication_footer" class="foot">
-                <?php
-            include "./layout/footer.php";
-        ?>
-            </div>
-            <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 

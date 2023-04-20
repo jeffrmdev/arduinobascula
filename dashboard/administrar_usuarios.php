@@ -91,13 +91,6 @@ if (empty($_SESSION['id'])) {
 
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <?php
-                require('./layout/footer.php');
-            ?>
-            <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
 
