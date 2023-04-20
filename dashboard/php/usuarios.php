@@ -1,6 +1,7 @@
 <?php
 
 include '../../model/conexion_database.php';
+date_default_timezone_set('America/Los_Angeles');
 
 if(isset($_POST["opcion"]))
 {
@@ -18,6 +19,7 @@ if(isset($_POST["opcion"]))
                 $material = "";
                 $peso = "";
                 $precio = "";
+                $fecha = date("Y-m-d");
 
                 if(isset($_POST["correo"])) $correo = $_POST["correo"] ;
                 if(isset($_POST["direccion"])) $direccion = $_POST["direccion"] ;
@@ -25,8 +27,8 @@ if(isset($_POST["opcion"]))
                 if(isset($_POST["peso"])) $peso = $_POST["peso"] ;
                 if(isset($_POST["precio"])) $precio = $_POST["precio"] ;   
             }
-            $sql = "INSERT INTO `usuario`(`id`, `cedula`, `nombre`, `apellido`, `correo`, `direccion`, `material`, `peso`, `precio`) 
-            VALUES ('','$cedula','$nombre','$apellido','$correo','$direccion','$material','$peso','$precio')";
+            $sql = "INSERT INTO `usuario`(`id`, `cedula`, `nombre`, `apellido`, `correo`, `direccion`, `material`, `peso`, `precio`,`fecha_registro`) 
+            VALUES ('','$cedula','$nombre','$apellido','$correo','$direccion','$material','$peso','$precio','$fecha')";
             $result = mysqli_query($con, $sql);
             break;
 
@@ -56,6 +58,7 @@ if(isset($_POST["opcion"]))
                 $material = "";
                 $peso = "";
                 $precio = "";
+                $fecha = date("Y-m-d");
 
                 if(isset($_POST["correo"])) $correo = $_POST["correo"] ;
                 if(isset($_POST["direccion"])) $direccion = $_POST["direccion"] ;
@@ -71,7 +74,8 @@ if(isset($_POST["opcion"]))
             `direccion`='$direccion',
             `material`='$material',
             `peso`='$peso',
-            `precio`='$precio' WHERE `id`= $id;";
+            `precio`='$precio' 
+            `fecha_registro`=$fecha WHERE `id`= $id;";
             $result = mysqli_query($con, $sql);
             break;    
 
