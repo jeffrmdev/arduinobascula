@@ -74,9 +74,11 @@ if(isset($_POST["opcion"]))
             `direccion`='$direccion',
             `material`='$material',
             `peso`='$peso',
-            `precio`='$precio' 
-            `fecha_registro`=$fecha WHERE `id`= $id;";
+            `precio`='$precio', 
+            `fecha_registro`='$fecha' 
+            WHERE `id`= $id;";
             $result = mysqli_query($con, $sql);
+            echo $material;
             break;    
 
         default:

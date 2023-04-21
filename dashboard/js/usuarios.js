@@ -2,6 +2,7 @@ const { jsPDF } = window.jspdf;
 const listado = document.getElementById("materialList");
 const listadoUpdate = document.getElementById("materialListUpdate");
 
+
 let option = "";
 
 function opciones() {
@@ -216,7 +217,7 @@ function eliminarMaterial(id) {
     option = "eliminar";
     let estado = false;
     Swal.fire({
-        title: '¿Quiere eliminar este material?',
+        title: '¿Quiere eliminar este cliente?',
         text: "No se podrá recuperar",
         icon: 'warning',
         showCancelButton: true,
@@ -382,6 +383,7 @@ function imprimir(id_user){
         }
     })
 }
+
 
 //NOTIFICACION PARA
 mostrarUsuario()
