@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2023 a las 15:36:18
+-- Tiempo de generación: 21-04-2023 a las 17:31:11
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -40,7 +40,7 @@ CREATE TABLE `codigo_miembros` (
 INSERT INTO `codigo_miembros` (`id`, `codigo_miembro`, `rol_miembro`) VALUES
 (1, '1a2b3', 'Administrador'),
 (5, '3d4e5', 'Secretaria'),
-(6, '1234', 'Digitadores');
+(6, '12345', 'Digitadores');
 
 -- --------------------------------------------------------
 
@@ -112,8 +112,7 @@ INSERT INTO `precio_materiales` (`id`, `material`, `precio`) VALUES
 (5, 'Plástico', '0.17'),
 (6, 'Aluminio', '0.53'),
 (7, 'Papel blanco', '0.18'),
-(8, 'Papel mixto', '0.10'),
-(14, 'Bateria', '0.57');
+(8, 'Papel mixto', '0.10');
 
 -- --------------------------------------------------------
 
@@ -139,13 +138,20 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `cedula`, `nombre`, `apellido`, `correo`, `direccion`, `material`, `peso`, `precio`, `fecha_registro`) VALUES
-(1, '1754126157', 'Jefferson', 'Rios', 'jeff_rios@outlook.com', 'La Morita', '2', '5000', '0.55', '2023-02-21'),
-(2, '1754126157', 'Juan', 'Rios', 'jeff_rios1234@outlook.com', 'La Morita', '1', '', '0.00', '2023-02-20'),
-(3, '1234567890', 'Alex', 'Perez', 'alex@perez.com', 'La Moriuta', '1', '10000', '7.00', '2023-01-04'),
-(4, '1234567890', 'Fern', 'Piedra', '', '', '8', '4500', '0.45', '2023-03-01'),
-(5, '1754126157', 'Juan', 'Rios', 'jeff_rios1234@outlook.com', 'La Morita', '14', '10000', '5.70', '2023-06-20'),
+(1, '1754126157', 'Jefferson', 'Rios', 'jeff_rios@outlook.com', 'La Morita', '2', '5000', '0.55', '2022-06-21'),
+(2, '1754126157', 'Juan', 'Rios', 'jeff_rios1234@outlook.com', 'La Morita', '1', '1000', '0.00', '2022-06-30'),
+(3, '1234567890', 'Alex', 'Perez', 'alex@perez.com', 'La Moriuta', '1', '10000', '7.00', '2022-07-04'),
+(4, '1234567890', 'Fernando', 'Piedra', '', '', '8', '4500', '0.45', '2022-08-01'),
 (6, '1755123456', 'Alexis', 'Naranjo', '', '', '1', '200', '0.15', '2023-04-06'),
-(7, '1567098765', 'Alejandro', 'Hernandez', '', 'Quito', '2', '160', '0.02', '2022-05-19');
+(7, '1567098765', 'Alejandro', 'Hernandez', '', 'Quito', '2', '160', '0.02', '2022-05-19'),
+(8, '0501234567', 'Ana', 'García', 'ana.garcia@outlook.com', 'Quito - La Mariscal', '3', '10000', '1.00', '2023-01-21'),
+(9, '0312345678', 'Laura', 'López', 'laura_lopez@gmail.com', 'Quinche', '1', '2000', '1.50', '2023-01-03'),
+(10, '1208967565', 'Helena', 'Vera', 'hele.vera@hotmail.com', 'Pifo', '7', '3298', '0.59', '2023-03-10'),
+(11, '0978576279', 'Manuel', 'Torres', 'manuel.tor@gmail.com', 'Yaruqui', '1', '992', '0.74', '2023-03-04'),
+(12, '1009277539', 'Alex', 'Flores', 'alex_200@gmail.com', '', '4', '5921', '0.89', '2023-04-21'),
+(13, '0938381231', 'Paul', 'Andrade', 'paul2000@gmail.com', 'Tababela', '3', '2500', '0.25', '2023-02-21'),
+(14, '0513178920', 'Maria', 'Aguilar', 'maria@gm.com', 'Tumbaco', '5', '10000', '1.70', '2023-02-19'),
+(15, '1321637122', 'Juan', 'Castro', 'juan@ou.com', 'Tumbaco', '3', '10000', '1.00', '2023-02-21');
 
 --
 -- Índices para tablas volcadas
@@ -213,7 +219,7 @@ ALTER TABLE `precio_materiales`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
